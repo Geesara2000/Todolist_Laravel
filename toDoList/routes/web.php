@@ -4,5 +4,13 @@ use App\Http\Controllers\homeController;
 use App\Http\Controllers\toDoController;
 use Illuminate\Support\Facades\Route;
 
+//Home
 Route::get('/',[homeController::class, "index"])->name('home');
-Route::get('/todo',[toDoController::class, "index"])->name('todo');
+
+
+//Todo
+Route::prefix('/todo')->group(function (){
+    Route::get('/',[toDoController::class, "index"])->name('todo');
+    Route::post('/store',[toDoController::class, "store"])->name('todo.store');
+});
+
