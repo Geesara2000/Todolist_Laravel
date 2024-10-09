@@ -39,6 +39,4 @@ class toDoController extends Controller
         return redirect()->back();
     }
 
-
-
 }
